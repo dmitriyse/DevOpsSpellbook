@@ -30,3 +30,5 @@ parts/install-dotnet
 pushd ../ubuntu/parts/mercurial
 ./install;popd
 
+# Installing tortoisehg
+../ubuntu/parts/install-tortoisehg
