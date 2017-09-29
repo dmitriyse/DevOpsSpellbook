@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo apt install x11-apps --no-install-recommends -y

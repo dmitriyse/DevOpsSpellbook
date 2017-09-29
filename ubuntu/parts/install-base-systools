@@ -1,6 +1,20 @@
 #!/bin/bash
 
-# Installing base tools
-sudo apt install memtest86+ cifs-utils zip sshfs gpw htop iftop -y && \
-    sudo apt install mc -y
+set -e
 
+# Installing base tools
+
+# useful for a system stability testing
+sudo apt install memtest86+ -y
+
+# system diagnostincs
+sudo apt install htop iftop -y 
+
+# most popular remote filesystem access
+sudo apt install cifs-utils sshfs -y
+
+# smbclient is added for debugging samba mounting problems
+sudo apt install smbclient -y 
+
+# base debugging tool
+sudo apt install mc -y
