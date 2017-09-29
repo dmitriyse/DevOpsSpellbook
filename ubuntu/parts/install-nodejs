@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+# Preparing apt by the node js provided script
+sudo curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
+# installing nodejs
+sudo apt install -y nodejs
+
+# upgrading npm
+sudo npm install npm --upgrade -g
+
+# installing most required packages
+sudo npm install typescript gulp -g

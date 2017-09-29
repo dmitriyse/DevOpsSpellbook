@@ -1,5 +1,7 @@
 #!/bin/bash 
 
+set -e
+
 # Fix mdadm warnings
 parts/fix-mdadm-warning
 
@@ -14,3 +16,12 @@ parts/fix-mdadm-warning
 
 # Installing ultimate editor
 ../ubuntu/parts/install-vscode
+
+# Installing ultimate crossplatform shell
+parts/install-powershell
+
+# Installing nodejs LTS
+../ubuntu/parts/install-nodejs
+
+# Installing dotnet core
+parts/install-dotnet
