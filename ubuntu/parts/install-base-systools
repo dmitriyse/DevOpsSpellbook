@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Installing base tools
+apt-get install memtest86+ cifs-utils zip sshfs gpw htop

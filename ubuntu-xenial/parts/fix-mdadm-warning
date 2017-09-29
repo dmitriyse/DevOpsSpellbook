@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "ARRAY <ignore> devices=/dev/sda" >> /etc/mdadm/mdadm.conf
