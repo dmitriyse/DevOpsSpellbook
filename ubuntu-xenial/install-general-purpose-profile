@@ -1,5 +1,7 @@
+#!/bin/bash 
+
 # Fix mdadm warnings
-parts\fix-mdadm-warning
+parts/fix-mdadm-warning
 
 # Installing base tools
-..\ubuntu\parts\install-base-systools
+../ubuntu/parts/install-base-systools
