@@ -32,3 +32,6 @@ pushd ../ubuntu/parts/mercurial
 
 # Installing tortoisehg
 ../ubuntu/parts/install-tortoisehg
+
+# Installing docker engine
+../ubuntu/parts/install-docker
