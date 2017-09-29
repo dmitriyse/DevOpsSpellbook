@@ -25,3 +25,8 @@ parts/install-powershell
 
 # Installing dotnet core
 parts/install-dotnet
+
+# Installing mercurial
+pushd ../ubuntu/parts/mercurial
+./install;popd
+

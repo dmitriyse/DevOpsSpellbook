@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+# Standard installation from ppa
+sudo add-apt-repository ppa:mercurial-ppa/releases -y
+sudo apt update
+sudo apt install mercurial -y
+
+# installing additional plugins for mercurial
+sudo apt install libffi-dev libssl-dev -y
+sudo pip2 install mercurial-keyring
+sudo pip2 install keyrings.alt
+
+# Hacking up keryings.alt to silently apply empty master password
+sudo patch /usr/local/lib/python2.7/dist-packages/keyrings/alt/file.py file.py.patch
+
+sudo pip2 install hg-git
+sudo git clone https://github.com/dmitriyse/hg-git.git /usr/local/lib/hg-git
