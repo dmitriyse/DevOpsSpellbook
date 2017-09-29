@@ -11,3 +11,6 @@ parts/fix-mdadm-warning
 
 # Installing python2, python3 pip 
 ../ubuntu/parts/install-sys-pip
+
+# Installing ultimate editor
+../ubuntu/parts/install-vscode
