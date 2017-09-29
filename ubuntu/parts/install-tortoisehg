@@ -10,5 +10,5 @@ hg clone https://bitbucket.org/tortoisehg/thg /tmp/thg
 pushd /tmp/thg
 sudo python2 setup.py install;popd
 
-rm -r /tmp/thg
+sudo rm -r /tmp/thg
 
