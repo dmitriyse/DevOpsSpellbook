@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo apt install python3-pip python-pip -y
 sudo -H pip3 install pip --upgrade
 sudo -H pip2 install pip --upgrade
