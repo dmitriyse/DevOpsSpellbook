@@ -8,7 +8,7 @@ sudo -H pip2 install iniparse
 # Installing tortoisehg from latest source
 hg clone https://bitbucket.org/tortoisehg/thg /tmp/thg
 pushd /tmp/thg
-sudo python2 setup.py install;popd
+sudo -H python2 setup.py install;popd
 
 sudo rm -r /tmp/thg
 
