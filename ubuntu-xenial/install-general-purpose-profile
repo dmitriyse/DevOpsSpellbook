@@ -5,6 +5,10 @@ set -e
 # Fix mdadm warnings
 parts/fix-mdadm-warning
 
+# Installing system miscellaneous scripts
+pushd ../ubuntu/parts
+./install-sys-misc;popd
+
 # Installing base tools
 ../ubuntu/parts/install-base-systools
 

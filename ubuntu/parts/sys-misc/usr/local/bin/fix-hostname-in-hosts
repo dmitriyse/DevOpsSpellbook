@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+host_name=`hostname`
+dns_domain_suffix=`dns-domain-suffix`
+original_line=`cat /etc/hosts | grep $host_name`
+ip=`echo $original_line |awk '{print $1;}'`
+echo Fixing hostname in /etc/hosts
+# TODO: this command replaces tabs with spaces, this should be changed.
+new_line="$ip\t$host_name.$dns_domain_suffix $host_name"
+printf "Result: $new_line\n"
+sed -i "s/$original_line/$new_line/g" /etc/hosts

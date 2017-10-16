@@ -1,0 +1,17 @@
+#!/bin/bash
+
+dnssuffix=""
+for suffix in `cat /etc/resolv.conf | grep search`
+do
+    # for a case "search contoso.com corp.contoso.com someanother.com" we should return corp.contoso.com
+    if [ "$suffix" != search ]
+	then
+	if [[ "$suffix" =~ "$dnssuffix" ]]
+	then
+	    dnssuffix=$suffix
+	else
+	    break
+	fi
+    fi
+done
+echo $dnssuffix

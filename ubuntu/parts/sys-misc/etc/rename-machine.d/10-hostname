@@ -1,0 +1,8 @@
+#!/bin/bash
+new=$1
+old=$2
+for file in \
+   /etc/hostname 
+do
+   [ -f $file ] && sed -i.old -e "s:$old:$new:g" $file
+done

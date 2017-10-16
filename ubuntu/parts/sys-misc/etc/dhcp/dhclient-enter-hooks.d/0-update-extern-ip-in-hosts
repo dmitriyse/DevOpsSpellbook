@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
+   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
+then
+    host_name=`hostname`
+    original_line=`cat /etc/hosts | grep $host_name`
+    old_ip=`echo $original_line |awk '{print $1;}'`
+    echo Updating host IP in hosts from $old_ip to $new_ip_address
+    # TODO: this command replaces tabs with spaces, this should be changed.
+    new_line=`echo $original_line | sed -e "s/$old_ip/${new_ip_address}/g"`
+    echo Result: $new_line
+    sed -i "s/$original_line/$new_line/g" /etc/hosts
+fi

@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+usage() {
+   echo "usage : $0 <new hostname>"
+   exit 1
+}
+
+[ "$1" ] || usage
+
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+old=$(hostname)
+new=$1
+
+run-parts /etc/rename-machine.d \
+arg="$1" --arg="$old"
+
+for file in \
+   /etc/hostname \
+   /etc/hosts \
+   /etc/ssh/ssh_host_rsa_key.pub \
+   /etc/ssh/ssh_host_dsa_key.pub \
+   /etc/ssh/ssh_host_ed25519_key.pub \
+   /etc/ssh/ssh_host_ecda_key.pub
+do
+   [ -f $file ] && sed -i.old -e "s:$old:$new:g" $file
+done
+
+old_hi=${old^^}
+new_hi=${new^^}
+
+for file in \
+    /etc/samba/smb.conf \
+do
+   [ -f $file ] && sed -i.old -e "s:$old_hi:$new_hi:g" $file
+done
