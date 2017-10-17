@@ -16,7 +16,7 @@ old=$(hostname)
 new=$1
 
 # Running rename subscripts
-run-parts /etc/rename-machine.d $new $old
+run-parts --arg=$new --arg=$old /etc/rename-machine.d
 
 echo "REBOOT MACHINE as soon as possible!"
 echo "DO NOT ANY SYSTEM CONFIGURATION UNTIL REBOOT!"
