@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+./install-general-purpose-profile
+
+../ubuntu/parts/install-kerberos-user.ps1
+
+../ubuntu/parts/install-ldapsearch
+
+../ubuntu/parts/install-samba-member.ps1

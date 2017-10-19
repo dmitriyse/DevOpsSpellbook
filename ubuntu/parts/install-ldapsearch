@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo apt install ldap-utils -y
+
+if ! grep -q "TLS_REQCERT" /etc/ldap/ldap.conf; then
+    echo "TLS_REQCERT allow" | sudo tee -a /etc/ldap/ldap.conf
+fi
