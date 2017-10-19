@@ -10,6 +10,9 @@ sudo apt install memtest86+ -y
 # system diagnostincs
 sudo apt install htop iftop -y 
 
+# network utils
+sudo apt install traceroute -y
+
 # most popular remote filesystem access
 sudo apt install cifs-utils sshfs -y
 

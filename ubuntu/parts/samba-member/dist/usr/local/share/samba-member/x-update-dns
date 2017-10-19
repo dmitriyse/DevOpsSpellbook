@@ -1,0 +1,31 @@
+#!/bin/bash
+
+requireddomain=corp.contoso.com
+
+#only execute on specific nic (by default )
+if [ "$interface" != "eth-samba-domain" ]
+then
+   return
+fi
+
+# when we have a new IP, perform nsupdate
+if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
+   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
+then
+    host=`hostname`
+    nsupdatecmds=/var/tmp/nsupdatecmds
+    ptr_addr=`echo $new_ip_address | awk -F. '{print $4"."$3"."$2"."$1".in-addr.arpa"}'`
+    echo "update delete $host.$requireddomain. a" > $nsupdatecmds
+    echo "update add $host.$requireddomain. 86400 a $new_ip_address" >> $nsupdatecmds
+    echo "" >> $nsupdatecmds
+    echo "update delete $ptr_addr. ptr" >> $nsupdatecmds
+    echo "update add $ptr_addr. 86400 ptr $host.$requireddomain." >> $nsupdatecmds
+    echo "send" >> $nsupdatecmds
+
+    (sleep 5 && \
+    kinit -k $(echo $host | tr 'a-z' 'A-Z')\$ && \
+    nsupdate -g $nsupdatecmds) &
+fi
+
+#done
+#exit 0;

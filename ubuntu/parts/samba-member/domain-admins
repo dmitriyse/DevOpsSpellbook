@@ -1,0 +1,2 @@
+# Allow domain admins to act as root
+%domain\ admins ALL=(ALL:ALL) ALL

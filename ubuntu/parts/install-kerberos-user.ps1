@@ -25,7 +25,7 @@ try{
     # Installing kerberos and NTP for time synchronization.
     # We do not setup NTP special server. It's very rare case when KDC subsystem requires custom time.
     # Also it's a rare case when KDC infrastructure have no internet access
-    apt install ntp krb5-user -y
+    apt install ntp krb5-user libpam-krb5 -y
     $spnegoKeyConfigPath = "/etc/request-key.d/cifs.spnego.conf"
     (Get-Content $spnegoKeyConfigPath) -replace "/usr/sbin/cifs.upcall %k", "/usr/sbin/cifs.upcall --trust-dns %k" `
         | out-file $spnegoKeyConfigPath -Encoding utf8

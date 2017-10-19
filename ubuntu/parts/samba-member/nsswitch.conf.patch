@@ -1,0 +1,15 @@
+diff --git a/nsswitch.conf b/modified
+index 1142be1..5076d6e 100644
+--- a/nsswitch.conf
++++ b/modified
+@@ -4,8 +4,8 @@
+ # If you have the `glibc-doc-reference' and `info' packages installed, try:
+ # `info libc "Name Service Switch"' for information about this file.
+ 
+-passwd:         compat
+-group:          compat
++passwd:         compat winbind
++group:          compat winbind
+ shadow:         compat
+ gshadow:        files
+ 
