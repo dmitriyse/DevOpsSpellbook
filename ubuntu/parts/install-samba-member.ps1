@@ -1,4 +1,4 @@
-#!/usr/bin/powershell
+#!/usr/bin/pwsh
 
 $rootPath = [System.IO.Path]::GetFullPath((split-path $SCRIPT:MyInvocation.MyCommand.Path -parent))
 

@@ -1,4 +1,4 @@
-#!/usr/bin/powershell
+#!/usr/bin/pwsh
 
 <#
 .SYNOPSIS

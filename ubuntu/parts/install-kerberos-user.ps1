@@ -1,4 +1,4 @@
-#!/usr/bin/powershell
+#!/usr/bin/pwsh
 
 try{
     Write-Host "Installing kerberos client (krb5-user)" -ForegroundColor DarkGreen
