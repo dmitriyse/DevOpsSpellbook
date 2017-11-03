@@ -15,5 +15,4 @@ sudo -H pip2 install keyrings.alt
 # Hacking up keryings.alt to silently apply empty master password
 sudo patch /usr/local/lib/python2.7/dist-packages/keyrings/alt/file.py file.py.patch
 
-sudo -H pip2 install hg-git
-sudo git clone https://github.com/dmitriyse/hg-git.git /usr/local/lib/hg-git
+sudo -H pip2 install git+https://bitbucket.org/dmitriyse/hg-git-git.git
