@@ -21,3 +21,6 @@ sudo apt install smbclient -y
 
 # base debugging tool
 sudo apt install mc -y
+
+# compression tools
+sudo apt install pigz -y
