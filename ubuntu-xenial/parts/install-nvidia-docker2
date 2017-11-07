@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Adding repository
+curl -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+sudo apt-key add -
+sudo tee /etc/apt/sources.list.d/nvidia-docker.list <<< \
+"deb https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64 /
+deb https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64 /
+deb https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64 /"
+sudo apt-get update
+
+# Installing nvidia-docker
+sudo apt-get install nvidia-docker2 -y
+
+# Restarting docker
+sudo service docker restart
