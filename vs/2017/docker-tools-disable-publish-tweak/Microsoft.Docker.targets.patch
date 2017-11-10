@@ -1,0 +1,57 @@
+diff --git a/Microsoft.Docker.targets b/Microsoft.Docker.targets
+index c090f2a..abb5030 100644
+--- a/Microsoft.Docker.targets
++++ b/Microsoft.Docker.targets
+@@ -127,17 +127,17 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+     <CallTarget Targets="DockerResolveAppType;DockerResolveTargetFramework" />
+ 
+     <!-- ASP.NET Core -->
+-    <MSBuild Projects="$(MSBuildProjectFullPath)"
++    <!-- <MSBuild Projects="$(MSBuildProjectFullPath)"
+              Targets="Build"
+              Properties="Configuration=$(Configuration);
+                          Platform=$(Platform);
+                          WebPublishMethod=FileSystem;
+                          DeployOnBuild=True;
+                          PublishUrl=$(DockerPublishDirectory)"
+-             Condition=" '$(DockerAppType)' == 'AspNetCore' " />
++             Condition=" '$(DockerAppType)' == 'AspNetCore' " /> -->
+ 
+     <!-- ASP.NET -->
+-    <MSBuild Projects="$(MSBuildProjectFullPath)"
++    <!-- <MSBuild Projects="$(MSBuildProjectFullPath)"
+              Targets="Build"
+              Properties="Configuration=$(Configuration);
+                          Platform=$(Platform);
+@@ -146,18 +146,18 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+                          DeployTarget=WebPublish;
+                          DeployOnBuild=True;
+                          PublishUrl=$(DockerPublishDirectory)"
+-             Condition=" '$(DockerAppType)' == 'AspNet' " />
++             Condition=" '$(DockerAppType)' == 'AspNet' " /> -->
+ 
+     <!-- Console on .NET Core -->
+-    <MSBuild Projects="$(MSBuildProjectFullPath)"
++    <!-- <MSBuild Projects="$(MSBuildProjectFullPath)"
+              Targets="Publish"
+              Properties="Configuration=$(Configuration);
+                          Platform=$(Platform);
+                          PublishDir=$(DockerPublishDirectory)"
+-             Condition=" '$(DockerAppType)' == 'Console' And '$(DockerTargetFramework)' == 'DotNetCore' " />
++             Condition=" '$(DockerAppType)' == 'Console' And '$(DockerTargetFramework)' == 'DotNetCore' " /> -->
+ 
+     <!-- Console on .NET Framework -->
+-    <MSBuild Projects="$(MSBuildProjectFullPath)"
++    <!-- <MSBuild Projects="$(MSBuildProjectFullPath)"
+              Targets="Build"
+              Properties="Configuration=$(Configuration);
+                          Platform=$(Platform)"
+@@ -167,7 +167,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+     </ItemGroup>
+     <Copy SourceFiles="@(DockerOutputFiles)"
+           DestinationFiles="@(DockerOutputFiles->'$(DockerPublishDirectory)\%(RecursiveDir)%(Filename)%(Extension)')"
+-          Condition=" '$(DockerAppType)' == 'Console' And '$(DockerTargetFramework)' == 'DotNetFramework' " />
++          Condition=" '$(DockerAppType)' == 'Console' And '$(DockerTargetFramework)' == 'DotNetFramework' " /> -->
+   </Target>
+ 
+ </Project>

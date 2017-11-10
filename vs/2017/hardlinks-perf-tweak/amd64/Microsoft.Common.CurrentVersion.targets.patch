@@ -1,0 +1,40 @@
+diff --git "a/Microsoft.Common.CurrentVersion.targets" "b/Microsoft.Common.CurrentVersion.targets"
+index f11a771..d3fd6fb 100644
+--- "a/Microsoft.Common.CurrentVersion.targets"	
++++ "b/Microsoft.Common.CurrentVersion.targets"
+@@ -4022,7 +4022,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+     -->
+   <PropertyGroup>
+     <!-- By default we're not using Hard or Symbolic Links to copy to the output directory, and never when building in VS -->
+-    <CreateHardLinksForCopyAdditionalFilesIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForCopyAdditionalFilesIfPossible)' == ''">false</CreateHardLinksForCopyAdditionalFilesIfPossible>
++    <CreateHardLinksForCopyAdditionalFilesIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForCopyAdditionalFilesIfPossible)' == ''">true</CreateHardLinksForCopyAdditionalFilesIfPossible>
+     <CreateSymbolicLinksForCopyAdditionalFilesIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateSymbolicLinksForCopyAdditionalFilesIfPossible)' == ''">false</CreateSymbolicLinksForCopyAdditionalFilesIfPossible>
+   </PropertyGroup>
+ 
+@@ -4039,7 +4039,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+ 
+     <PropertyGroup>
+       <!-- By default we're not using Hard Links to copy to the output directory, and never when building in VS -->
+-      <CreateHardLinksForCopyFilesToOutputDirectoryIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForCopyFilesToOutputDirectoryIfPossible)' == ''">false</CreateHardLinksForCopyFilesToOutputDirectoryIfPossible>
++      <CreateHardLinksForCopyFilesToOutputDirectoryIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForCopyFilesToOutputDirectoryIfPossible)' == ''">true</CreateHardLinksForCopyFilesToOutputDirectoryIfPossible>
+       <CreateSymbolicLinksForCopyFilesToOutputDirectoryIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateSymbolicLinksForCopyFilesToOutputDirectoryIfPossible)' == ''">false</CreateSymbolicLinksForCopyFilesToOutputDirectoryIfPossible>
+     </PropertyGroup>
+ 
+@@ -4216,7 +4216,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+ 
+     <PropertyGroup>
+       <!-- By default we're not using Hard Links to copy to the output directory, and never when building in VS -->
+-      <CreateHardLinksForCopyLocalIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForCopyLocalIfPossible)' == ''">false</CreateHardLinksForCopyLocalIfPossible>
++      <CreateHardLinksForCopyLocalIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForCopyLocalIfPossible)' == ''">true</CreateHardLinksForCopyLocalIfPossible>
+       <CreateSymbolicLinksForCopyLocalIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateSymbolicLinksForCopyLocalIfPossible)' == ''">false</CreateSymbolicLinksForCopyLocalIfPossible>
+     </PropertyGroup>
+ 
+@@ -5174,7 +5174,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
+ 
+     <PropertyGroup>
+       <!-- By default we're not using Hard or Symbolic Links to copy to the publish directory, and never when building in VS -->
+-      <CreateHardLinksForPublishFilesIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForPublishFilesIfPossible)' == ''">false</CreateHardLinksForPublishFilesIfPossible>
++      <CreateHardLinksForPublishFilesIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateHardLinksForPublishFilesIfPossible)' == ''">true</CreateHardLinksForPublishFilesIfPossible>
+       <CreateSymbolicLinksForPublishFilesIfPossible Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(CreateSymbolicLinksForPublishFilesIfPossible)' == ''">false</CreateSymbolicLinksForPublishFilesIfPossible>
+     </PropertyGroup>
+ 
