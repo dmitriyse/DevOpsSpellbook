@@ -3,3 +3,5 @@
 set -e
 
 sudo apt install x11-apps --no-install-recommends -y
+
+sudo cp -rf x11-ssh-support/* /
