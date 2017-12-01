@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# when we have a new IP, perform nsupdate
+if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
+   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
+then
+
+    (sleep 5 && update-samba-dns) &
+fi

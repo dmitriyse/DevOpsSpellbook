@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+SAMBA_DOMAIN=`dns-domain-suffix`
+SAMBA_NS=`dig +short NS $SAMBA_DOMAIN | head -n1`
+SAMBA_NS=${SAMBA_NS::-1}
+SAMBA_NS_IP=`dig +short IP $SAMBA_NS`
+LOCAL_IP=`ip -o route get $SAMBA_NS_IP | cut -d " " -f 6`
+
+HOST_NAME=`hostname`
+
+#Performing kerberos service authentication
+kinit -k $(echo $HOST_NAME | tr 'a-z' 'A-Z')\$
+
+NS_UPDATE_CMD=/var/tmp/nsupdatecmds
+
+PTR_ADDR=`echo $LOCAL_IP | awk -F. '{print $4"."$3"."$2"."$1".in-addr.arpa"}'`
+
+# Updating A record
+NS_UPDATE_CMD=/var/tmp/update-samba-dns-a-record.txt
+echo "server $SAMBA_NS" > $NS_UPDATE_CMD
+echo "zone $SAMBA_DOMAIN" >> $NS_UPDATE_CMD
+echo "" >> $NS_UPDATE_CMD
+echo "update delete $HOST_NAME.$SAMBA_DOMAIN. a" >> $NS_UPDATE_CMD
+echo "update add $HOST_NAME.$SAMBA_DOMAIN. 86400 a $LOCAL_IP" >> $NS_UPDATE_CMD
+echo "send" >> $NS_UPDATE_CMD
+nsupdate -g $NS_UPDATE_CMD
+
+# Updating Ptr rescord
+NS_UPDATE_CMD=/var/tmp/update-samba-dns-ptr-record.txt
+echo "server $SAMBA_NS" > $NS_UPDATE_CMD
+
+echo "" >> $NS_UPDATE_CMD
+echo "update delete $PTR_ADDR. ptr" >> $NS_UPDATE_CMD
+echo "update add $PTR_ADDR. 86400 ptr $HOST_NAME.$SAMBA_DOMAIN." >> $NS_UPDATE_CMD
+echo "send" >> $NS_UPDATE_CMD
+nsupdate -g $NS_UPDATE_CMD
