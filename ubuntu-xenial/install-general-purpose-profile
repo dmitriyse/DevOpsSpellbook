@@ -15,6 +15,9 @@ pushd ../ubuntu/parts
 # Installing remote x11 support
 ../ubuntu/parts/install-x11-ssh-support
 
+# Installing gui tools
+../ubuntu/part/install-base-gui-tools
+
 # Installing python2, python3 pip 
 ../ubuntu/parts/install-sys-pip
 
@@ -31,8 +34,7 @@ parts/install-powershell
 parts/install-dotnet
 
 # Installing mercurial
-pushd ../ubuntu/parts/mercurial
-./install;popd
+../ubuntu/parts/install-hg
 
 # Installing tortoisehg
 ../ubuntu/parts/install-tortoisehg
