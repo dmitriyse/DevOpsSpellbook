@@ -1,4 +1,4 @@
-#!/bin/pwsh
+#!/usr/bin/pwsh
 
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt update -y

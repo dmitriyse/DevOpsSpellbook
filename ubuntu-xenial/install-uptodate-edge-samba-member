@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+./upgrade-ensure-hwe-edge-kernel
+
+./install-general-purpose-profile
+
+sudo ../ubuntu/parts/install-kerberos-user.ps1
+
+../ubuntu/parts/install-ldapsearch
+
+sudo ../ubuntu/parts/install-samba-member.ps1

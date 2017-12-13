@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SAMBA_DOMAIN=`dns-domain-suffix`
+SAMBA_NS=`dig +short NS $SAMBA_DOMAIN | head -n1`
+SAMBA_NS=${SAMBA_NS::-1}
+SAMBA_NS_IP=`dig +short IP $SAMBA_NS`
+LOCAL_IP=`ip -o route get $SAMBA_NS_IP | cut -d " " -f 6`
+echo $LOCAL_IP

@@ -1,6 +1,6 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 sudo apt install linux-image-generic-hwe-16.04 linux-headers-generic-hwe-16.04 -y
-sudo apt autoremove
+sudo apt autoremove -y

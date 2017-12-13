@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+sudo apt install doublecmd-gtk dbus-x11 gnome-terminal gedit -y --no-install-recommends
