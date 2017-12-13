@@ -16,7 +16,7 @@ pushd ../ubuntu/parts
 ../ubuntu/parts/install-x11-ssh-support
 
 # Installing gui tools
-../ubuntu/part/install-base-gui-tools
+../ubuntu/parts/install-base-gui-tools
 
 # Installing python2, python3 pip 
 ../ubuntu/parts/install-sys-pip
