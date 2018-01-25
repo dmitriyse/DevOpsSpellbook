@@ -3,5 +3,5 @@
 if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
    [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
 then
-    fix-ip-in-hosts
+    (sleep 5 && fix-ip-in-hosts) &
 fi
