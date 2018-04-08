@@ -3,4 +3,5 @@
 sudo apt update
 sudo apt upgrade -y
 sudo apt install linux-image-generic-hwe-16.04-edge linux-headers-generic-hwe-16.04-edge -y
+sudo apt autoremove linux-image-generic-hwe-16.04 linux-headers-generic-hwe-16.04 linux-image-generic linux-headers-generic -y
 sudo apt autoremove -y

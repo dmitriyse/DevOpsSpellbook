@@ -1,0 +1,19 @@
+#!/usr/bin/pwsh
+
+Param (
+    [Parameter(Mandatory=$True,Position=1)]
+    [int]$gpu_id,
+    [Parameter(Mandatory=$True,Position=2)]
+    [int]$fan_speed
+)
+
+$env:DISPLAY=":0"
+$xinit_pid = pgrep xinit
+if (!$xinit_pid)
+{
+    bash -c "sudo timeout 15 xinit &"
+    sleep 5
+}
+
+sudo nvidia-settings -a "[gpu:$gpu_id]/GPUFanControlState=1"
+sudo nvidia-settings -a "[fan:$gpu_id]/GPUTargetFanSpeed=$fan_speed"

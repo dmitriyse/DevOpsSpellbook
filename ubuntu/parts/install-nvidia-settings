@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo apt install nvidia-settings xinit xterm libxv --no-install-recommends -y
+
+DISPLAY=:0 sudo nvidia-xconfig --enable-all-gpus --use-display-device=none --cool-bits=4
+
+set -e
+
+sudo cp -rf nvidia-settings/* /

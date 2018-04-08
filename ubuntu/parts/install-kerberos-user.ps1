@@ -10,12 +10,13 @@ try{
     if ($LastExitCode){exit $LastExitCode} #Execution mantra
     $hostName = hostname
 
-    $fullHostName = "$hostName.$domainSuffix"
-    $fullHostNameAddressString = get-content /etc/hosts | where {$_.Contains($fullHostName)} | Select-Object -First 1
-    if (!$fullHostNameAddressString){
-        throw """/etc/hosts"" should contain address for the ""$fullHostName"" (full host name)"
-    }
+    #$fullHostName = "$hostName.$domainSuffix"
+    #$fullHostNameAddressString = get-content /etc/hosts | where {$_.Contains($fullHostName)} | Select-Object -First 1
+    #if (!$fullHostNameAddressString){
+    #    throw """/etc/hosts"" should contain address for the ""$fullHostName"" (full host name)"
+    #}
 
+    fix-hostname-in-hosts
 
     #$ip = ($fullHostNameAddressString.Trim() -split "\s")[0]
     #Write-Host "IP v4 for from the /etc/hosts: $ip"
