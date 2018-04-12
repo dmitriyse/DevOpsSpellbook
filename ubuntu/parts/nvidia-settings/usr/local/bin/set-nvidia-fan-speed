@@ -11,7 +11,7 @@ $env:DISPLAY=":0"
 $xinit_pid = pgrep xinit
 if (!$xinit_pid)
 {
-    bash -c "sudo timeout 15 xinit &"
+    bash -c "sudo xinit &"
     sleep 5
 }
 
