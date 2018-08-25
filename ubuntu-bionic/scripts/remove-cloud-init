@@ -1,0 +1,17 @@
+set -e
+
+# saving current network configuration to be able to boot
+sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/01-netcfg.yaml
+
+# Removing cloud-init
+# Source: https://nucco.org/2018/05/ubuntu-18-04-chronicles-removing-cloud-init.html
+
+# acually not needed
+# sudo dpkg-reconfigure cloud-init
+
+sudo apt-get purge cloud-init -y
+
+# saving config files just in case
+sudo mv --force /etc/cloud/ ~/; sudo mv --force /var/lib/cloud/ ~/cloud-lib
+
+echo PLEASE REBOOT ME!
