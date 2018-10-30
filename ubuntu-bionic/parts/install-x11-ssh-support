@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+sudo apt install x11-apps --no-install-recommends -y
+
+sudo cp -rf `dirname "$0"`/x11-ssh-support/* /

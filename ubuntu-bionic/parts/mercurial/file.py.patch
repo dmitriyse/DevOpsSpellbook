@@ -1,0 +1,29 @@
+diff --git a/file.py.original b/file.py
+index 317c140..5f1e8f8 100644
+--- a/file.py.original
++++ b/file.py
+@@ -101,7 +101,10 @@ class EncryptedKeyring(Encrypted, Keyring):
+         """
+         Initialize a new password file and set the reference password.
+         """
+-        self.keyring_key = self._get_new_password()
++
++#        self.keyring_key = self._get_new_password()
++        self.keyring_key = ''
++
+         # set a reference password, used to check that the password provided
+         #  matches for subsequent checks.
+         self.set_password('keyring-setting',
+@@ -181,8 +184,10 @@ class EncryptedKeyring(Encrypted, Keyring):
+         Unlock this keyring by getting the password for the keyring from the
+         user.
+         """
+-        self.keyring_key = getpass.getpass(
+-            'Please enter password for encrypted keyring: ')
++#        self.keyring_key = getpass.getpass(
++#            'Please enter password for encrypted keyring: ')
++        self.keyring_key = ''
++
+         try:
+             ref_pw = self.get_password('keyring-setting', 'password reference')
+             assert ref_pw == 'password reference value'

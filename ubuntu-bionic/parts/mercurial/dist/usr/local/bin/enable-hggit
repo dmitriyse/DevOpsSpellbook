@@ -1,0 +1,6 @@
+#/bin/bash
+
+set -e
+
+crudini --set ~/.hgrc extensions hggit 
+crudini --set ~/.hgrc extensions hgext.bookmarks 

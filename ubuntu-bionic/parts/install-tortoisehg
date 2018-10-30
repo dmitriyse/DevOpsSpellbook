@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+sudo apt install python-qscintilla2 python-gobject python-qt4 -y
+sudo -H pip2 install iniparse
+
+# Installing tortoisehg from latest source
+hg clone https://bitbucket.org/tortoisehg/thg /tmp/thg
+pushd /tmp/thg
+sudo -H python2 setup.py install;popd
+
+sudo rm -r /tmp/thg
+
